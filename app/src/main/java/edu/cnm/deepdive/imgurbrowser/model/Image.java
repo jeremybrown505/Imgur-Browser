@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.imgurbrowser2.model;
+package edu.cnm.deepdive.imgurbrowser.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
