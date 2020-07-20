@@ -59,7 +59,7 @@ public class GalleryListAdapter extends
       imageSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-          String item = adapterView.getItemAtPosition(position).toString();
+//          String item = adapterView.getItemAtPosition(position).toString();
         }
 
         @Override
@@ -72,10 +72,9 @@ public class GalleryListAdapter extends
     private void bind(int position) {
       title.setText(galleries[position].getTitle());
       description.setText(galleries[position].getDescription());
-      ArrayAdapter<Image> dataAdapter = new ArrayAdapter<>(context,
-          android.R.layout.simple_spinner_item, galleries[position].getImages());
-      dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-      imageSpinner.setAdapter(dataAdapter);
+      GalleryImageAdapter galleryImageAdapter = new GalleryImageAdapter(context,
+          galleries[position].getImages());
+      imageSpinner.setAdapter(galleryImageAdapter);
     }
   }
 

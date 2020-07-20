@@ -2,20 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  android:layout_height="wrap_content"
+  android:padding="@dimen/basic_margin"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <!--  private final TextView title;-->
   <!--  private final TextView description;-->
-  <!--  private final Spinner imageSpinner;-->
 
   <Spinner
     android:id="@+id/gallery_search_spinner"
-    android:layout_width="@dimen/gallery_search_spinner_width"
-    android:layout_height="@dimen/gallery_search_spinner_height"
+    android:layout_width="200dp"
+    android:layout_height="100dp"
     android:spinnerMode="dialog"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/title"
     />
 
   <TextView
@@ -24,9 +24,11 @@
     android:layout_height="wrap_content"
     app:layout_constraintStart_toEndOf="@id/gallery_search_spinner"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginStart="@dimen/basic_margin"
-    android:layout_marginTop="@dimen/basic_margin"
-    android:text="@string/image_title"
+    app:layout_constraintBottom_toTopOf="@id/description"
+    app:layout_constraintVertical_chainStyle="packed"
+    android:layout_marginLeft="@dimen/basic_margin"
+    android:layout_marginBottom="@dimen/half_margin"
+    android:text="Image Title"
     style="@style/TitleText"
     android:textColor="@android:color/black"
     />
@@ -37,11 +39,10 @@
     android:layout_height="wrap_content"
     app:layout_constraintStart_toEndOf="@id/gallery_search_spinner"
     app:layout_constraintTop_toBottomOf="@id/title"
-    android:text="@string/image_description"
-    android:layout_marginStart="@dimen/basic_margin"
-    android:layout_marginTop="@dimen/basic_margin"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:text="Image Description"
     style="@style/Description"
-    android:textColor="@android:color/black"
+    android:layout_marginLeft="@dimen/basic_margin"
+    android:layout_marginTop="@dimen/half_margin"
     />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
