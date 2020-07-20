@@ -19,10 +19,10 @@ public class Gallery {
   private int imagesCount;
 
   @Expose
-  private edu.cnm.deepdive.imgurbrowser.model.Tag[] tags;
+  private Tag[] tags;
 
   @Expose
-  private edu.cnm.deepdive.imgurbrowser.model.Image[] images;
+  private Image[] images;
 
   public String getId() {
     return id;
@@ -64,24 +64,25 @@ public class Gallery {
     this.imagesCount = imagesCount;
   }
 
-  public edu.cnm.deepdive.imgurbrowser.model.Tag[] getTags() {
+  public Tag[] getTags() {
     return tags;
   }
 
-  public void setTags(edu.cnm.deepdive.imgurbrowser.model.Tag[] tags) {
+  public void setTags(Tag[] tags) {
     this.tags = tags;
   }
 
-  public edu.cnm.deepdive.imgurbrowser.model.Image[] getImages() {
+  public Image[] getImages() {
     return images;
   }
 
-  public void setImages(edu.cnm.deepdive.imgurbrowser.model.Image[] images) {
+  public void setImages(Image[] images) {
     this.images = images;
   }
 
   public static class Search {
 
+    @Expose
     private Gallery[] data;
 
     public Gallery[] getData() {
