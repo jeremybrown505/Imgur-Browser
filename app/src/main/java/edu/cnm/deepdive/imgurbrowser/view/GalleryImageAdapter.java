@@ -12,12 +12,13 @@ import androidx.annotation.Nullable;
 import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.imgurbrowser.R;
 import edu.cnm.deepdive.imgurbrowser.model.Image;
+import java.util.List;
 
 public class GalleryImageAdapter extends ArrayAdapter<Image> {
 
   public GalleryImageAdapter(@NonNull Context context,
-      Image[] imageItemArray) {
-    super(context, 0, imageItemArray);
+      List<Image> imageList) {
+    super(context, 0, imageList);
   }
 
   @NonNull
@@ -42,17 +43,21 @@ public class GalleryImageAdapter extends ArrayAdapter<Image> {
     TextView title = convertView.findViewById(R.id.custom_spinner_title);
     TextView description = convertView.findViewById(R.id.custom_spinner_description);
     TextView url = convertView.findViewById(R.id.custom_spinner_url);
-
     Image currentItem = getItem(position);
-
-    if (currentItem != null) {
-      Picasso.get().load(currentItem.getUrl()).into(imageView);
-      imageView.setSelected(true);
-      title.setText(currentItem.getTitle());
-      description.setText(currentItem.getDescription());
+    if (currentItem.getUrl() != null) {
+      if (position == 0) {
+        Picasso.get().load(R.drawable.gallery).into(imageView);
+      } else {
+        Picasso.get().load(currentItem.getUrl()).into(imageView);
+      }
+      if (currentItem.getTitle() != null) {
+        title.setText(currentItem.getTitle());
+      }
+      if (currentItem.getDescription() != null) {
+        description.setText(currentItem.getDescription());
+      }
       url.setText(currentItem.getUrl());
     }
-
     return convertView;
   }
 }
