@@ -47,3 +47,4 @@ public class GallerySearchFragment extends Fragment implements OnItemSelectedHel
     fragment.show(getChildFragmentManager(),fragment.getClass().getName());
   }
 }
+
